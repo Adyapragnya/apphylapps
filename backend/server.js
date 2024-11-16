@@ -784,7 +784,7 @@ app.get('/api/sat-intervals', async (req, res) => {
     } catch (error) {
         console.error('Error checking and updating vessel data:', error);
     } finally {
-        setTimeout(checkAndUpdateVesselData, 1000 * 60* 60*8); // Runs the function every 8 hours
+        setTimeout(checkAndUpdateVesselData, 1000 * 60* 60* 4); // Runs the function every 8 hours
     }
 }
 function sendConsolidatedEmail(vessels) {
@@ -799,7 +799,7 @@ function sendConsolidatedEmail(vessels) {
 
     const mailOptions = {
         from: 'admin@hylapps.com',
-        to: 'tech.adyapragnya@gmail.com,
+        bcc: 'support@hylapps.com,tech.adyapragnya@gmail.com',
         subject: 'Hyla-Alert',
         text: `The following vessels are within the zone:\n\n${emailBody}`,
     };
